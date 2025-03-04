@@ -42,13 +42,13 @@ See svgdef.[svg|png|pdf] for a graphical view of the function calls
 
 Usage: (assuming GOPATH is set)
 
-	go get github.com/ajstarks/svgo
-	go install github.com/ajstarks/svgo/...
+	go get github.com/caselongo/svgo
+	go install github.com/caselongo/svgo/...
 	
 	
 You can use godoc to browse the documentation from the command line:
 
-	$ go doc github.com/ajstarks/svgo
+	$ go doc github.com/caselongo/svgo
 	
 
 a minimal program, to generate SVG to standard output.
@@ -56,7 +56,7 @@ a minimal program, to generate SVG to standard output.
 	package main
 	
 	import (
-		"github.com/ajstarks/svgo"
+		"github.com/caselongo/svgo"
 		"os"
 	)
 	
@@ -76,7 +76,7 @@ Drawing in a web server: (http://localhost:2003/circle)
 	
 	import (
 		"log"
-		"github.com/ajstarks/svgo"
+		"github.com/caselongo/svgo"
 		"net/http"
 	)
 	

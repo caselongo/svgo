@@ -24,10 +24,9 @@ package svg
 //
 
 import (
+	"encoding/xml"
 	"fmt"
 	"io"
-
-	"encoding/xml"
 	"strings"
 )
 

@@ -1,4 +1,5 @@
 // svgrid -- composite SVG files in a grid
+//go:build !appengine
 // +build !appengine
 
 package main
@@ -7,10 +8,9 @@ import (
 	"encoding/xml"
 	"flag"
 	"fmt"
+	"github.com/caselongo/svgo"
 	"io"
 	"os"
-
-	"github.com/ajstarks/svgo"
 )
 
 // SVG is a SVG document

@@ -4,6 +4,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/caselongo/svgo"
 	"io"
 	"log"
 	"math"
@@ -12,8 +13,6 @@ import (
 	"net/url"
 	"strconv"
 	"time"
-
-	"github.com/ajstarks/svgo"
 )
 
 var listen = flag.String("listen", ":1958", "http service address")

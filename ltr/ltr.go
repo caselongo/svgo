@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ajstarks/svgo"
+	"github.com/caselongo/svgo"
 )
 
 var (

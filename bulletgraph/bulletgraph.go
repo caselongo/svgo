@@ -1,5 +1,6 @@
 // bulletgraph - bullet graphs
 // (Design Specification http://www.perceptualedge.com/articles/misc/Bullet_Graph_Design_Spec.pdf)
+//go:build !appengine
 // +build !appengine
 
 package main
@@ -8,12 +9,11 @@ import (
 	"encoding/xml"
 	"flag"
 	"fmt"
+	"github.com/caselongo/svgo"
 	"io"
 	"os"
 	"strconv"
 	"strings"
-
-	"github.com/ajstarks/svgo"
 )
 
 var (
@@ -184,7 +184,7 @@ func drawbg(bg Bulletgraph, canvas *svg.SVG) {
 	}
 }
 
-//vmap maps one interval to another
+// vmap maps one interval to another
 func vmap(value float64, low1 float64, high1 float64, low2 float64, high2 float64) float64 {
 	return low2 + (high2-low2)*(value-low1)/(high1-low1)
 }

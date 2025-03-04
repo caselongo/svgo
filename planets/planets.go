@@ -1,4 +1,5 @@
 // planets: an exploration of scale
+//go:build !appengine
 // +build !appengine
 
 package main
@@ -6,10 +7,9 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/caselongo/svgo"
 	"image/png"
 	"os"
-
-	"github.com/ajstarks/svgo"
 )
 
 var ssDist = []float64{
@@ -32,7 +32,7 @@ var ssRad = []float64{ // Miles
 	42980.0,  // Jupiter
 	35610.0,  // Saturn
 	15700.0,  // Uranus
-	15260.0}  // Neptune
+	15260.0} // Neptune
 
 var ssColor = []string{ // R, G, B
 	//  Eyeballed from image

@@ -5,11 +5,10 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"github.com/caselongo/svgo"
+	"honnef.co/go/tools/structlayout"
 	"log"
 	"os"
-
-	"github.com/ajstarks/svgo"
-	"honnef.co/go/tools/structlayout"
 )
 
 var title, bgcolor, scolor, pcolor string

@@ -5,7 +5,7 @@ import (
 	"encoding/xml"
 	"flag"
 	"fmt"
-	"github.com/ajstarks/svgo"
+	"github.com/caselongo/svgo"
 	"io"
 	"math"
 	"os"

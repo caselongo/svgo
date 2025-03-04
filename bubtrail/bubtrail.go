@@ -1,4 +1,5 @@
 // bubtrail draws a randmonized trail of bubbles
+//go:build !appengine
 // +build !appengine
 
 package main
@@ -6,11 +7,10 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/caselongo/svgo"
 	"math/rand"
 	"os"
 	"time"
-
-	"github.com/ajstarks/svgo"
 )
 
 var (

@@ -1,13 +1,13 @@
 // android draws bugdroid, the Android mascot
+//go:build !appengine
 // +build !appengine
 
 package main
 
 import (
 	"fmt"
+	"github.com/caselongo/svgo"
 	"os"
-
-	"github.com/ajstarks/svgo"
 )
 
 var (

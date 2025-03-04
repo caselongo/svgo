@@ -1,13 +1,13 @@
 // gradient shows sample gradient fills
+//go:build !appengine
 // +build !appengine
 
 package main
 
 import (
+	svg "github.com/caselongo/svgo"
 	"os"
 	"strconv"
-
-	svg "github.com/ajstarks/svgo"
 )
 
 func main() {

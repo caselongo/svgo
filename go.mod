@@ -1,4 +1,4 @@
-module github.com/ajstarks/svgo
+module github.com/caselongo/svgo
 
 go 1.23.5
 

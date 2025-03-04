@@ -1,14 +1,14 @@
 // richter -- inspired by Gerhard Richter's 256 colors, 1974
+//go:build !appengine
 // +build !appengine
 
 package main
 
 import (
+	"github.com/caselongo/svgo"
 	"math/rand"
 	"os"
 	"time"
-
-	"github.com/ajstarks/svgo"
 )
 
 var canvas = svg.New(os.Stdout)

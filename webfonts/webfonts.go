@@ -1,17 +1,17 @@
 // webfonts demo
+//go:build !appengine
 // +build !appengine
 
 package main
 
 import (
 	"fmt"
+	"github.com/caselongo/svgo"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"os"
 	"strings"
-
-	"github.com/ajstarks/svgo"
 )
 
 var (

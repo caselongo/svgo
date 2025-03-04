@@ -1,13 +1,13 @@
 // fontcompare: compare two fonts
+//go:build !appengine
 // +build !appengine
 
 package main
 
 import (
 	"fmt"
+	"github.com/caselongo/svgo"
 	"os"
-
-	"github.com/ajstarks/svgo"
 )
 
 var (

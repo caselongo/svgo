@@ -6,13 +6,12 @@ import (
 	"bytes"
 	"flag"
 	"fmt"
+	svg "github.com/caselongo/svgo"
 	"io"
 	"math"
 	"os"
 	"strconv"
 	"strings"
-
-	svg "github.com/ajstarks/svgo"
 )
 
 // geometry defines the layout of the visualization

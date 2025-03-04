@@ -1,16 +1,16 @@
 // randcomp visualizes random number generators
+//go:build !appengine
 // +build !appengine
 
 package main
 
 import (
 	"fmt"
+	"github.com/caselongo/svgo"
 	"math/rand"
 	"os"
 	"strconv"
 	"time"
-
-	"github.com/ajstarks/svgo"
 )
 
 var canvas = svg.New(os.Stdout)

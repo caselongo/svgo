@@ -1,12 +1,12 @@
 // svgopher - Go mascot remix
+//go:build !appengine
 // +build !appengine
 
 package main
 
 import (
+	"github.com/caselongo/svgo"
 	"os"
-
-	"github.com/ajstarks/svgo"
 )
 
 var (

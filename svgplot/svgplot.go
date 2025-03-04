@@ -1,4 +1,5 @@
 //svgplot -- plot data (a stream of x,y coordinates)
+//go:build !appengine
 // +build !appengine
 
 package main
@@ -6,11 +7,10 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/caselongo/svgo"
 	"io"
 	"math"
 	"os"
-
-	"github.com/ajstarks/svgo"
 )
 
 // rawdata defines data as float64 x,y coordinates

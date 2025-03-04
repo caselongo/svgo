@@ -1,4 +1,5 @@
 // tumblrgrid: display a flexible grid of pictures from tumblr, filtered by tags
+//go:build !appengine
 // +build !appengine
 
 package main
@@ -7,12 +8,11 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"github.com/caselongo/svgo"
 	"io"
 	"io/ioutil"
 	"net/http"
 	"os"
-
-	"github.com/ajstarks/svgo"
 )
 
 var (

@@ -1,4 +1,5 @@
 // codepic -- produce code+output sample suitable for slides
+//go:build !appengine
 // +build !appengine
 
 package main
@@ -8,11 +9,10 @@ import (
 	"encoding/xml"
 	"flag"
 	"fmt"
+	"github.com/caselongo/svgo"
 	"io"
 	"os"
 	"strings"
-
-	"github.com/ajstarks/svgo"
 )
 
 var (

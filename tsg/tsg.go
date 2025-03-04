@@ -1,4 +1,5 @@
 // tsg -- twitter search grid
+//go:build !appengine
 // +build !appengine
 
 package main
@@ -7,12 +8,11 @@ import (
 	"encoding/xml"
 	"flag"
 	"fmt"
+	"github.com/caselongo/svgo"
 	"io"
 	"net/http"
 	"net/url"
 	"os"
-
-	"github.com/ajstarks/svgo"
 )
 
 var canvas = svg.New(os.Stdout)

@@ -1,4 +1,5 @@
 // flower - draw random flowers, inspired by Evelyn Eastmond's DesignBlocks gererated "grain2"
+//go:build !appengine
 // +build !appengine
 
 package main
@@ -6,12 +7,11 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/caselongo/svgo"
 	"math"
 	"math/rand"
 	"os"
 	"time"
-
-	"github.com/ajstarks/svgo"
 )
 
 var (

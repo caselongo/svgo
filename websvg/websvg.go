@@ -1,15 +1,15 @@
 // websvg draws SVG in a web server
+//go:build !appengine
 // +build !appengine
 
 package main
 
 import (
 	"flag"
+	"github.com/caselongo/svgo"
 	"log"
 	"net/http"
 	"strings"
-
-	"github.com/ajstarks/svgo"
 )
 
 const defaultstyle = "fill:rgb(127,0,0)"

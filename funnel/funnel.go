@@ -1,12 +1,12 @@
 // funnel draws a funnel-like shape
+//go:build !appengine
 // +build !appengine
 
 package main
 
 import (
+	"github.com/caselongo/svgo"
 	"os"
-
-	"github.com/ajstarks/svgo"
 )
 
 var canvas = svg.New(os.Stdout)

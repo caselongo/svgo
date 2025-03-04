@@ -1,4 +1,5 @@
 // colortab -- make a color/code placemat
+//go:build !appengine
 // +build !appengine
 
 package main
@@ -7,10 +8,9 @@ import (
 	"bufio"
 	"flag"
 	"fmt"
+	"github.com/caselongo/svgo"
 	"os"
 	"strings"
-
-	"github.com/ajstarks/svgo"
 )
 
 func main() {

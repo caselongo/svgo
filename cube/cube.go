@@ -5,9 +5,8 @@ import (
 	"crypto/rand"
 	"flag"
 	"fmt"
+	"github.com/caselongo/svgo"
 	"os"
-
-	"github.com/ajstarks/svgo"
 )
 
 var canvas = svg.New(os.Stdout)

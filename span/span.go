@@ -1,9 +1,8 @@
 package main
 
 import (
+	svg "github.com/caselongo/svgo"
 	"os"
-
-	svg "github.com/ajstarks/svgo"
 )
 
 func main() {
