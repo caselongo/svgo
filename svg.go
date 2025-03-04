@@ -420,12 +420,12 @@ func (svg *SVG) Textspan(x int, y int, t string, s ...string) {
 
 // Span makes styled spanned text, should be proceeded by Textspan
 // Standard Reference: https://www.w3.org/TR/SVG11/text.html#TSpanElement
-func (svg *SVG) Span(t string, s ...string) {
+func (svg *SVG) Span(dx int, dy int, t string, s ...string) {
 	if len(s) == 0 {
 		xml.Escape(svg.Writer, []byte(t))
 		return
 	}
-	svg.printf(`<tspan %s`, endstyle(s, ">"))
+	svg.printf(`<tspan %s %s`, delta(dx, dy), endstyle(s, ">"))
 	xml.Escape(svg.Writer, []byte(t))
 	svg.printf(`</tspan>`)
 }
@@ -1031,6 +1031,14 @@ func ptag(x int, y int) string { return fmt.Sprintf(`<path d="M%s`, coord(x, y))
 
 // loc returns the x and y coordinate attributes
 func loc(x int, y int) string { return fmt.Sprintf(`x="%d" y="%d"`, x, y) }
+
+// delta returns the dx and dy coordinate attributes
+func delta(dx int, dy int) string {
+	if dx == 0 && dy == 0 {
+		return ""
+	}
+	return fmt.Sprintf(`dx="%d" dy="%d"`, dx, dy)
+}
 
 // href returns the href name and attribute
 func href(s string) string { return fmt.Sprintf(`xlink:href="%s"`, s) }

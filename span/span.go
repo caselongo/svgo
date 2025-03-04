@@ -14,7 +14,7 @@ func main() {
 	canvas.Circle(width/2, height/2, 100)
 	canvas.Gstyle("text-anchor:middle;font-family:sans;fill:white")
 	canvas.Textspan(width/2, height/2, "Hello ", "font-size:30px")
-	canvas.Span("SVG", "font-family:serif;font-size:50px;fill:yellow")
+	canvas.Span(0, 0, "SVG", "font-family:serif;font-size:50px;fill:yellow")
 	canvas.TextEnd()
 	canvas.Gend()
 	canvas.End()
