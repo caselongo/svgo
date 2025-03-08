@@ -27,6 +27,7 @@ import (
 	"encoding/xml"
 	"fmt"
 	"io"
+	"strconv"
 	"strings"
 )
 
@@ -311,6 +312,32 @@ func (svg *SVG) Ellipse(x int, y int, w int, h int, s ...string) {
 // Standard Reference: http://www.w3.org/TR/SVG11/shapes.html#PolygonElement
 func (svg *SVG) Polygon(x []int, y []int, s ...string) {
 	svg.poly(x, y, "polygon", s...)
+}
+
+// PolygonString draws a series of line segments using an array of x, y coordinates, with optional style.
+// Standard Reference: http://www.w3.org/TR/SVG11/shapes.html#PolygonElement
+func (svg *SVG) PolygonString(d string, s ...string) {
+	points := strings.Split(d, " ")
+	var x, y []float64
+
+	for _, point := range points {
+		if strings.TrimSpace(point) != "" {
+			xy := strings.Split(strings.TrimSpace(point), ",")
+			if len(xy) == 2 {
+				x1, err := strconv.ParseFloat(strings.TrimSpace(xy[0]), 64)
+				if err != nil {
+					continue
+				}
+				y1, err := strconv.ParseFloat(strings.TrimSpace(xy[1]), 64)
+				if err != nil {
+					continue
+				}
+				x = append(x, x1)
+				y = append(y, y1)
+			}
+		}
+	}
+	svg.polyF(x, y, "polygon", s...)
 }
 
 // Rect draws a rectangle with upper left-hand corner at x,y, with width w, and height h, with optional style
@@ -948,6 +975,20 @@ func (svg *SVG) pp(x []int, y []int, tag string) {
 	svg.print(coord(x[lx], y[lx]))
 }
 
+// pp returns a series of polygon points
+func (svg *SVG) ppF(x []float64, y []float64, tag string) {
+	svg.print(tag)
+	if len(x) != len(y) {
+		svg.print(" ")
+		return
+	}
+	lx := len(x) - 1
+	for i := 0; i < lx; i++ {
+		svg.print(coordF(x[i], y[i]) + " ")
+	}
+	svg.print(coordF(x[lx], y[lx]))
+}
+
 // endstyle modifies an SVG object, with either a series of name="value" pairs,
 // or a single string containing a style
 func endstyle(s []string, endtag string) string {
@@ -976,6 +1017,12 @@ func (svg *SVG) tt(tag string, s string) {
 // poly compiles the polygon element
 func (svg *SVG) poly(x []int, y []int, tag string, s ...string) {
 	svg.pp(x, y, "<"+tag+" points=\"")
+	svg.print(`" ` + endstyle(s, "/>\n"))
+}
+
+// polyF compiles the polygon element
+func (svg *SVG) polyF(x []float64, y []float64, tag string, s ...string) {
+	svg.ppF(x, y, "<"+tag+" points=\"")
 	svg.print(`" ` + endstyle(s, "/>\n"))
 }
 
@@ -1024,6 +1071,9 @@ func translate(x, y int) string { return fmt.Sprintf(`translate(%d,%d)`, x, y) }
 
 // coord returns a coordinate string
 func coord(x int, y int) string { return fmt.Sprintf(`%d,%d`, x, y) }
+
+// coordF returns a coordinate string
+func coordF(x float64, y float64) string { return fmt.Sprintf(`%f,%f`, x, y) }
 
 // ptag returns the beginning of the path element
 func ptag(x int, y int) string { return fmt.Sprintf(`<path d="M%s`, coord(x, y)) }
